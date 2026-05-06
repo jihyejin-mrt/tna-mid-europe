@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "tavily": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": ["-y", "tavily-mcp@0.1.4"],
+      "env": {
+        "TAVILY_API_KEY": "<tvly-...>"
+      }
+    },
+    "redash": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": ["-y", "redash-mcp@3.0.4"],
+      "env": {
+        "REDASH_URL": "https://redash.myrealtrip.net",
+        "REDASH_API_KEY": "<redash-personal-token>"
+      }
+    }
+  }
+}

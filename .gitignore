@@ -1,0 +1,46 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Keys & Certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Credential Files
+credentials.json
+service-account*.json
+*service-account*.json
+secrets/
+.secrets/
+
+# Cloud Provider Configs
+.aws/credentials
+.gcp/
+gcloud-service-key.json
+
+# IDE & OS
+.DS_Store
+.idea/
+.vscode/settings.json
+*.swp
+*.swo
+
+# Build & Dependencies
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# MCP (개인 API 키 포함 — 각자 .mcp.json.example 복사해서 사용)
+.mcp.json
+
+# detect-secrets baseline
