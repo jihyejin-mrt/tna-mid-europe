@@ -4,17 +4,27 @@
 
 ## 빠른 시작 (팀원용)
 
-Claude Code에서 아래 두 줄만 실행하세요:
+**1단계 — API 키 발급 후 환경변수 설정** (`/market`·`/partner`·`/kpi`가 실제 데이터를 가져오려면 필수):
 
 ```bash
-# 1. 이 마켓플레이스를 등록
-/plugin marketplace add jihyejin-mrt/tna-mid-europe
+# ~/.zshrc 또는 ~/.zshenv 에 추가 후 source ~/.zshrc
+export TAVILY_API_KEY="<본인-Tavily-키-여기에>"     # 발급: https://app.tavily.com → API Keys
+export REDASH_API_KEY="<본인-Redash-토큰-여기에>"   # 발급: https://redash.myrealtrip.net → User Settings → API Key
+# REDASH_URL은 기본값(https://redash.myrealtrip.net)이 자동 적용됨
+```
 
-# 2. 플러그인 설치
+> Tavily는 무료 플랜으로 월 1,000 검색까지 가능합니다. Redash는 사내 계정 기반이므로 본인 토큰을 발급하세요.
+
+**2단계 — Claude Code에서 마켓플레이스 등록 + 플러그인 설치**:
+
+```bash
+/plugin marketplace add jihyejin-mrt/tna-mid-europe
 /plugin install tna-europe-toolkit@mrt-tna-europe
 ```
 
-설치가 끝나면 아래 6개 슬래시 커맨드가 바로 사용 가능합니다.
+**3단계 — Claude Code 재시작.** MCP 서버 연결을 위해 한 번 재시작이 필요합니다. 재시작 후 `claude mcp list`에 `tavily`·`redash`가 `✓ Connected`로 보이면 정상.
+
+설치가 끝나면 아래 6개 슬래시 커맨드 + 2개 MCP 서버가 함께 활성화됩니다.
 
 ## 제공 커맨드
 
@@ -31,17 +41,29 @@ Claude Code에서 아래 두 줄만 실행하세요:
 
 각 커맨드는 두괄식 결론 → 분석 본문 → A/B/C 다음 선택지 형식으로 출력합니다.
 
-## MCP 서버 설정 (Tavily / Redash)
+## MCP 서버 (Tavily · Redash, 플러그인에 동봉됨)
 
-`/market`, `/partner`는 Tavily 웹 검색을 활용하고, `/kpi`는 Redash 쿼리를 참조하기 때문에 두 MCP 서버 연결을 권장합니다.
+플러그인 설치 시 두 MCP 서버가 자동으로 함께 등록됩니다 — 별도 `.mcp.json` 작성 불필요.
 
-1. 저장소의 `.mcp.json.example`을 본인 Claude 설정 위치(`~/.claude.json` 또는 프로젝트 루트의 `.mcp.json`)에 복사
-2. API 키를 본인 것으로 교체:
-   - **Tavily**: https://app.tavily.com 가입 → API Keys → 발급 (`tvly-...`)
-   - **Redash**: https://redash.myrealtrip.net → 우상단 프로필 → User Settings → API Key
-3. Claude Code 재시작
+| MCP | 용도 | 사용하는 커맨드 | API 키 발급 |
+|-----|------|----------------|-------------|
+| `tavily` | 실시간 웹 검색 (시장·경쟁사·파트너 정보) | `/market`, `/partner` | https://app.tavily.com |
+| `redash` | 사내 데이터 쿼리 (`con_margin`, `GMV` 등) | `/kpi`, `/analyze` | https://redash.myrealtrip.net → User Settings → API Key |
 
-> **주의**: `.mcp.json`은 절대 깃에 커밋하지 마세요. 본 저장소는 `detect-secrets` pre-commit hook으로 보호되고 있으며 `.gitignore`에 `.mcp.json`이 등록되어 있습니다.
+API 키는 보안상 플러그인에 포함하지 않고 **환경변수**로 주입합니다. 위 "빠른 시작 1단계"의 `export` 가이드를 따르세요.
+
+### 동작 확인
+
+```bash
+# Claude Code 재시작 후
+claude mcp list
+# → tavily: ✓ Connected, redash: ✓ Connected 가 보여야 정상
+```
+
+연결 실패 시 체크 포인트:
+1. `echo $TAVILY_API_KEY` 로 환경변수가 실제로 export 되었는지
+2. Claude Code를 새 터미널에서 재시작했는지 (기존 세션은 환경변수 변경을 못 봄)
+3. `npx`가 PATH에 있는지 (`which npx`) — Node.js 미설치 시 `brew install node`
 
 ## 팀 작업 원칙 (선택: 항상 적용하기)
 
@@ -80,6 +102,7 @@ tna-mid-europe/
 │   └── tna-europe-toolkit/
 │       ├── .claude-plugin/
 │       │   └── plugin.json        # 플러그인 매니페스트
+│       ├── .mcp.json              # Tavily + Redash MCP (env var 참조)
 │       └── commands/              # 6개 슬래시 커맨드
 │           ├── analyze.md
 │           ├── email.md
@@ -88,7 +111,7 @@ tna-mid-europe/
 │           ├── meeting.md
 │           └── partner.md
 ├── CLAUDE.md                      # 팀 작업 원칙 (참조용)
-├── .mcp.json.example              # MCP 서버 설정 템플릿
+├── .mcp.json.example              # 플러그인 미사용 시 참고용 템플릿
 ├── .pre-commit-config.yaml        # detect-secrets 훅
 └── README.md
 ```

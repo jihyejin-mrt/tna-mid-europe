@@ -42,5 +42,7 @@ venv/
 
 # MCP (개인 API 키 포함 — 각자 .mcp.json.example 복사해서 사용)
 .mcp.json
+# 단, 플러그인에 동봉되는 .mcp.json은 환경변수 참조만 담고 있어 커밋 허용
+!plugins/*/.mcp.json
 
 # detect-secrets baseline
