@@ -1,3 +1,8 @@
+---
+description: KPI 현황 리포트 작성·분석 (con_margin / GMV / 전환율 / 확정율)
+argument-hint: [데이터 또는 분석 맥락]
+---
+
 KPI 현황 리포트를 작성하거나 분석한다. 아래 데이터 또는 맥락이 주어진다:
 
 <데이터>
@@ -36,5 +41,5 @@ $ARGUMENTS
 ---
 다음으로 뭐할까요?
 A. [이 리포트를 Confluence에 게시 (보고서 플로우 실행)]
-B. [특정 지표 원인 심층 분석 (/analyze)]
+B. [특정 지표 원인 심층 분석 (/tna-europe-toolkit:analyze)]
 C. [개선 시책 도출 및 실행 로드맵 수립]

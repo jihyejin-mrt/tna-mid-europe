@@ -1,0 +1,12 @@
+{
+  "name": "tna-europe-toolkit",
+  "description": "마이리얼트립 중부유럽팀 공용 슬래시 커맨드 — 이슈 드리븐 분석, 파트너 이메일, 회의록 정리, KPI 리포트, 시장 조사, 파트너 리서치 (설치 후 /tna-europe-toolkit:* 로 호출)",
+  "version": "0.1.0",
+  "author": {
+    "name": "마이리얼트립 중부유럽팀",
+    "email": "jihye.jin@myrealtrip.com"
+  },
+  "homepage": "https://github.com/jihyejin-mrt/tna-mid-europe",
+  "repository": "https://github.com/jihyejin-mrt/tna-mid-europe",
+  "keywords": ["myrealtrip", "tna", "europe", "tour-activities", "korean", "issue-driven"]
+}

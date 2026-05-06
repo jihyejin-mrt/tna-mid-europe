@@ -1,3 +1,8 @@
+---
+description: 유럽 투어·액티비티 시장 조사 (3C·空雨傘, Tavily 활용)
+argument-hint: [지역/카테고리/조사 목적]
+---
+
 유럽 투어·액티비티 시장 조사를 수행한다. 아래 조사 주제가 주어진다:
 
 <주제>
@@ -35,6 +40,6 @@ $ARGUMENTS
 
 ---
 다음으로 뭐할까요?
-A. [이 조사를 기반으로 이슈 드리븐 분석 (/analyze)]
-B. [유망 파트너 발굴 (/partner)]
+A. [이 조사를 기반으로 이슈 드리븐 분석 (/tna-europe-toolkit:analyze)]
+B. [유망 파트너 발굴 (/tna-europe-toolkit:partner)]
 C. [조사 결과를 Confluence 보고서로 작성]

@@ -1,3 +1,8 @@
+---
+description: 신규 파트너 리서치 + 영업 준비 (Tavily 검색 + 영문 첫 컨택 초안)
+argument-hint: [파트너명·지역·카테고리]
+---
+
 신규 파트너 리서치 및 영업 준비를 수행한다. 아래 파트너 정보가 주어진다:
 
 <파트너>
@@ -33,6 +38,6 @@ $ARGUMENTS
 
 ---
 다음으로 뭐할까요?
-A. [첫 컨택 이메일 정식 작성 (/email)]
-B. [이 파트너 경쟁사 포함 시장 조사 (/market)]
+A. [첫 컨택 이메일 정식 작성 (/tna-europe-toolkit:email)]
+B. [이 파트너 경쟁사 포함 시장 조사 (/tna-europe-toolkit:market)]
 C. [다른 파트너 추가 리서치]

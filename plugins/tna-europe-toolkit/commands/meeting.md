@@ -1,3 +1,8 @@
+---
+description: 회의록 정리 + 액션아이템 추출 (담당·마감·우선순위 표)
+argument-hint: [회의록 원문]
+---
+
 회의 내용을 정리하고 액션아이템을 추출한다. 아래 회의록 원문이 주어진다:
 
 <회의록>
@@ -32,6 +37,6 @@ $ARGUMENTS
 
 ---
 다음으로 뭐할까요?
-A. [액션아이템 담당자에게 보낼 후속 이메일 초안 작성 (/email)]
-B. [미결 사항 분석 및 의사결정 지원 (/analyze)]
+A. [액션아이템 담당자에게 보낼 후속 이메일 초안 작성 (/tna-europe-toolkit:email)]
+B. [미결 사항 분석 및 의사결정 지원 (/tna-europe-toolkit:analyze)]
 C. [이 회의록을 Confluence에 게시]

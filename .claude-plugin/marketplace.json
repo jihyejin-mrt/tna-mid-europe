@@ -1,0 +1,15 @@
+{
+  "name": "mrt-tna-europe",
+  "owner": {
+    "name": "마이리얼트립 중부유럽팀 (T&A)",
+    "email": "jihye.jin@myrealtrip.com"
+  },
+  "description": "마이리얼트립 Tour & Activities 사업부 중부유럽팀 공용 Claude Code 플러그인 마켓플레이스",
+  "plugins": [
+    {
+      "name": "tna-europe-toolkit",
+      "source": "./plugins/tna-europe-toolkit",
+      "description": "유럽 T&A 팀 공용 슬래시 커맨드 모음 — 분석, 이메일, 회의록, KPI, 시장 조사, 파트너 리서치"
+    }
+  ]
+}
